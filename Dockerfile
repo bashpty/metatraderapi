@@ -41,6 +41,8 @@ RUN $url = ('https://www.python.org/ftp/python/{0}/python-{1}-amd64.exe' -f ($en
 	\
 	Write-Host 'Complete.'
 
+
+
 WORKDIR /python-docker
 
 COPY . .
