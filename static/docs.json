@@ -1,0 +1,3047 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "FYT - API",
+        "version": "0.0.1",
+        "description": "This is a CRUD API "
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "description": "Returns message showing app is up",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/admin/affiliatepercentage": {
+            "get": {
+                "tags": [
+                    "Affiliate Percentage"
+                ],
+                "summary": "Get a list of entities",
+                "responses": {
+                    "200": {
+                        "description": "Success: List of entities returned successfully"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Affiliate Percentage"
+                ],
+                "summary": "Create a new entity",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AffiliatePercentage"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created: AffiliatePercentage successfully created"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            }
+        },
+        "/admin/affiliatepercentage/{id}": {
+            "get": {
+                "tags": [
+                    "Affiliate Percentage"
+                ],
+                "summary": "Get an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: AffiliatePercentage found"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Affiliate Percentage"
+                ],
+                "summary": "Update an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AffiliatePercentage"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success: AffiliatePercentage actualizada exitosamente"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Affiliate Percentage"
+                ],
+                "summary": "Delete an entity by ID",
+                "parameters": {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "responses": {
+                "200": {
+                    "description": "Success: AffiliatePercentage successfully removed"
+                },
+                "401": {
+                    "description": "Unauthorized: Authentication required"
+                },
+                "403": {
+                    "description": "Forbidden: You do not have permissions to access this resource"
+                },
+                "404": {
+                    "description": "Not found: The entity does not exist"
+                }
+            }
+        },
+        "/affiliates": {
+            "get": {
+                "tags": [
+                    "Affiliates"
+                ],
+                "summary": "Get a list of entities",
+                "responses": {
+                    "200": {
+                        "description": "Success: List of entities returned successfully"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Affiliates"
+                ],
+                "summary": "Create a new entity",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Affiliates"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created: Affiliates successfully created"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            }
+        },
+        "/affiliates/{id}": {
+            "get": {
+                "tags": [
+                    "Affiliates"
+                ],
+                "summary": "Get an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: Affiliates found"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Affiliates"
+                ],
+                "summary": "Update an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Affiliates"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success: Affiliates actualizada exitosamente"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Affiliates"
+                ],
+                "summary": "Delete an entity by ID",
+                "parameters": {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "responses": {
+                "200": {
+                    "description": "Success: Affiliates successfully removed"
+                },
+                "401": {
+                    "description": "Unauthorized: Authentication required"
+                },
+                "403": {
+                    "description": "Forbidden: You do not have permissions to access this resource"
+                },
+                "404": {
+                    "description": "Not found: The entity does not exist"
+                }
+            }
+        },
+        "/coupon": {
+            "get": {
+                "tags": [
+                    "Coupon"
+                ],
+                "summary": "Get a list of entities",
+                "responses": {
+                    "200": {
+                        "description": "Success: List of entities returned successfully"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Coupon"
+                ],
+                "summary": "Create a new entity",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Coupon"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created: Coupon successfully created"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            }
+        },
+        "/coupon/{id}": {
+            "get": {
+                "tags": [
+                    "Coupon"
+                ],
+                "summary": "Get an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: Coupon found"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Coupon"
+                ],
+                "summary": "Update an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Coupon"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success: Coupon actualizada exitosamente"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Coupon"
+                ],
+                "summary": "Delete an entity by ID",
+                "parameters": {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "responses": {
+                "200": {
+                    "description": "Success: Coupon successfully removed"
+                },
+                "401": {
+                    "description": "Unauthorized: Authentication required"
+                },
+                "403": {
+                    "description": "Forbidden: You do not have permissions to access this resource"
+                },
+                "404": {
+                    "description": "Not found: The entity does not exist"
+                }
+            }
+        },
+        "/loghandler": {
+            "get": {
+                "tags": [
+                    "Log Handler"
+                ],
+                "summary": "Get a list of entities",
+                "responses": {
+                    "200": {
+                        "description": "Success: List of entities returned successfully"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Log Handler"
+                ],
+                "summary": "Create a new entity",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LogHandler"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created: LogHandler successfully created"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            }
+        },
+        "/loghandler/{id}": {
+            "get": {
+                "tags": [
+                    "Log Handler"
+                ],
+                "summary": "Get an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: LogHandler found"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Log Handler"
+                ],
+                "summary": "Update an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LogHandler"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success: LogHandler actualizada exitosamente"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Log Handler"
+                ],
+                "summary": "Delete an entity by ID",
+                "parameters": {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "responses": {
+                "200": {
+                    "description": "Success: LogHandler successfully removed"
+                },
+                "401": {
+                    "description": "Unauthorized: Authentication required"
+                },
+                "403": {
+                    "description": "Forbidden: You do not have permissions to access this resource"
+                },
+                "404": {
+                    "description": "Not found: The entity does not exist"
+                }
+            }
+        },
+        
+        "/mtaccount": {
+            "get": {
+                "tags": [
+                    "MT Account"
+                ],
+                "summary": "Get a list of entities",
+                "responses": {
+                    "200": {
+                        "description": "Success: List of entities returned successfully"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "MT Account"
+                ],
+                "summary": "Create a new entity",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/MtAccounts"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created: MtAccounts successfully created"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            }
+        },
+        "/mtaccount/{id}": {
+            "get": {
+                "tags": [
+                    "MT Account"
+                ],
+                "summary": "Get an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: MtAccounts found"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "MT Account"
+                ],
+                "summary": "Update an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/MtAccounts"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success: MtAccounts actualizada exitosamente"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "MT Account"
+                ],
+                "summary": "Delete an entity by ID",
+                "parameters": {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "responses": {
+                "200": {
+                    "description": "Success: MtAccounts successfully removed"
+                },
+                "401": {
+                    "description": "Unauthorized: Authentication required"
+                },
+                "403": {
+                    "description": "Forbidden: You do not have permissions to access this resource"
+                },
+                "404": {
+                    "description": "Not found: The entity does not exist"
+                }
+            }
+        },
+        "/admin/membership": {
+            "get": {
+                "tags": [
+                    "Membership"
+                ],
+                "summary": "Get a list of entities",
+                "responses": {
+                    "200": {
+                        "description": "Success: List of entities returned successfully"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Membership"
+                ],
+                "summary": "Create a new entity",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Memberships"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created: Memberships successfully created"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            }
+        },
+        "/admin/membership/{id}": {
+            "get": {
+                "tags": [
+                    "Membership"
+                ],
+                "summary": "Get an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: Memberships found"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Membership"
+                ],
+                "summary": "Update an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Memberships"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success: Memberships actualizada exitosamente"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Membership"
+                ],
+                "summary": "Delete an entity by ID",
+                "parameters": {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "responses": {
+                "200": {
+                    "description": "Success: Memberships successfully removed"
+                },
+                "401": {
+                    "description": "Unauthorized: Authentication required"
+                },
+                "403": {
+                    "description": "Forbidden: You do not have permissions to access this resource"
+                },
+                "404": {
+                    "description": "Not found: The entity does not exist"
+                }
+            }
+        },
+        "/notifications": {
+            "get": {
+                "tags": [
+                    "Notifications"
+                ],
+                "summary": "Get a list of entities",
+                "responses": {
+                    "200": {
+                        "description": "Success: List of entities returned successfully"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Notifications"
+                ],
+                "summary": "Create a new entity",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Notifications"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created: Notifications successfully created"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            }
+        },
+        "/notifications/{id}": {
+            "get": {
+                "tags": [
+                    "Notifications"
+                ],
+                "summary": "Get an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: Notifications found"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Notifications"
+                ],
+                "summary": "Update an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Notifications"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success: Notifications actualizada exitosamente"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Notifications"
+                ],
+                "summary": "Delete an entity by ID",
+                "parameters": {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "responses": {
+                "200": {
+                    "description": "Success: Notifications successfully removed"
+                },
+                "401": {
+                    "description": "Unauthorized: Authentication required"
+                },
+                "403": {
+                    "description": "Forbidden: You do not have permissions to access this resource"
+                },
+                "404": {
+                    "description": "Not found: The entity does not exist"
+                }
+            }
+        },
+        "/orders": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Get a list of entities",
+                "responses": {
+                    "200": {
+                        "description": "Success: List of entities returned successfully"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Create a new entity",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Orders"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created: Orders successfully created"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            }
+        },
+        "/orders/{id}": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Get an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: Orders found"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Update an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Orders"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success: Orders actualizada exitosamente"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Delete an entity by ID",
+                "parameters": {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "responses": {
+                "200": {
+                    "description": "Success: Orders successfully removed"
+                },
+                "401": {
+                    "description": "Unauthorized: Authentication required"
+                },
+                "403": {
+                    "description": "Forbidden: You do not have permissions to access this resource"
+                },
+                "404": {
+                    "description": "Not found: The entity does not exist"
+                }
+            }
+        },
+        "/admin/packages": {
+            "get": {
+                "tags": [
+                    "Packages"
+                ],
+                "summary": "Get a list of entities",
+                "responses": {
+                    "200": {
+                        "description": "Success: List of entities returned successfully"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Packages"
+                ],
+                "summary": "Create a new entity",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Packages"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created: Packages successfully created"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            }
+        },
+        "/admin/packages/{id}": {
+            "get": {
+                "tags": [
+                    "Packages"
+                ],
+                "summary": "Get an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: Packages found"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Packages"
+                ],
+                "summary": "Update an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Packages"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success: Packages actualizada exitosamente"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Packages"
+                ],
+                "summary": "Delete an entity by ID",
+                "parameters": {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "responses": {
+                "200": {
+                    "description": "Success: Packages successfully removed"
+                },
+                "401": {
+                    "description": "Unauthorized: Authentication required"
+                },
+                "403": {
+                    "description": "Forbidden: You do not have permissions to access this resource"
+                },
+                "404": {
+                    "description": "Not found: The entity does not exist"
+                }
+            }
+        },
+        "/paguelofaciltransactions": {
+            "get": {
+                "tags": [
+                    "Paguelofacil Transactions"
+                ],
+                "summary": "Get a list of entities",
+                "responses": {
+                    "200": {
+                        "description": "Success: List of entities returned successfully"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Paguelofacil Transactions"
+                ],
+                "summary": "Create a new entity",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PaguelofacilTransactions"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created: PaguelofacilTransactions successfully created"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            }
+        },
+        "/paguelofaciltransactions/{id}": {
+            "get": {
+                "tags": [
+                    "Paguelofacil Transactions"
+                ],
+                "summary": "Get an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: PaguelofacilTransactions found"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Paguelofacil Transactions"
+                ],
+                "summary": "Update an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PaguelofacilTransactions"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success: PaguelofacilTransactions actualizada exitosamente"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Paguelofacil Transactions"
+                ],
+                "summary": "Delete an entity by ID",
+                "parameters": {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "responses": {
+                "200": {
+                    "description": "Success: PaguelofacilTransactions successfully removed"
+                },
+                "401": {
+                    "description": "Unauthorized: Authentication required"
+                },
+                "403": {
+                    "description": "Forbidden: You do not have permissions to access this resource"
+                },
+                "404": {
+                    "description": "Not found: The entity does not exist"
+                }
+            }
+        },
+        "/admin/permissions": {
+            "get": {
+                "tags": [
+                    "Permissions"
+                ],
+                "summary": "Get a list of entities",
+                "responses": {
+                    "200": {
+                        "description": "Success: List of entities returned successfully"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Permissions"
+                ],
+                "summary": "Create a new entity",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Permissions"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created: Permissions successfully created"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            }
+        },
+        "/admin/permissions/{id}": {
+            "get": {
+                "tags": [
+                    "Permissions"
+                ],
+                "summary": "Get an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: Permissions found"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Permissions"
+                ],
+                "summary": "Update an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Permissions"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success: Permissions actualizada exitosamente"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Permissions"
+                ],
+                "summary": "Delete an entity by ID",
+                "parameters": {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "responses": {
+                "200": {
+                    "description": "Success: Permissions successfully removed"
+                },
+                "401": {
+                    "description": "Unauthorized: Authentication required"
+                },
+                "403": {
+                    "description": "Forbidden: You do not have permissions to access this resource"
+                },
+                "404": {
+                    "description": "Not found: The entity does not exist"
+                }
+            }
+        },
+        "/admin/pricerates": {
+            "get": {
+                "tags": [
+                    "Price Rates"
+                ],
+                "summary": "Get a list of entities",
+                "responses": {
+                    "200": {
+                        "description": "Success: List of entities returned successfully"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Price Rates"
+                ],
+                "summary": "Create a new entity",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PriceRates"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created: PriceRates successfully created"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            }
+        },
+        "/admin/pricerates/{id}": {
+            "get": {
+                "tags": [
+                    "Price Rates"
+                ],
+                "summary": "Get an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: PriceRates found"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Price Rates"
+                ],
+                "summary": "Update an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PriceRates"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success: PriceRates actualizada exitosamente"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Price Rates"
+                ],
+                "summary": "Delete an entity by ID",
+                "parameters": {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "responses": {
+                "200": {
+                    "description": "Success: PriceRates successfully removed"
+                },
+                "401": {
+                    "description": "Unauthorized: Authentication required"
+                },
+                "403": {
+                    "description": "Forbidden: You do not have permissions to access this resource"
+                },
+                "404": {
+                    "description": "Not found: The entity does not exist"
+                }
+            }
+        },
+        "/admin/rols": {
+            "get": {
+                "tags": [
+                    "Rols"
+                ],
+                "summary": "Get a list of entities",
+                "responses": {
+                    "200": {
+                        "description": "Success: List of entities returned successfully"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Rols"
+                ],
+                "summary": "Create a new entity",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Rols"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created: Rols successfully created"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            }
+        },
+        "/admin/rols/{id}": {
+            "get": {
+                "tags": [
+                    "Rols"
+                ],
+                "summary": "Get an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: Rols found"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Rols"
+                ],
+                "summary": "Update an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Rols"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success: Rols actualizada exitosamente"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Rols"
+                ],
+                "summary": "Delete an entity by ID",
+                "parameters": {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "responses": {
+                "200": {
+                    "description": "Success: Rols successfully removed"
+                },
+                "401": {
+                    "description": "Unauthorized: Authentication required"
+                },
+                "403": {
+                    "description": "Forbidden: You do not have permissions to access this resource"
+                },
+                "404": {
+                    "description": "Not found: The entity does not exist"
+                }
+            }
+        },
+        
+        "/tickets": {
+            "get": {
+                "tags": [
+                    "Tickets"
+                ],
+                "summary": "Get a list of entities",
+                "responses": {
+                    "200": {
+                        "description": "Success: List of entities returned successfully"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Tickets"
+                ],
+                "summary": "Create a new entity",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Tickets"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created: Tickets successfully created"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            }
+        },
+        "/tickets/{id}": {
+            "get": {
+                "tags": [
+                    "Tickets"
+                ],
+                "summary": "Get an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: Tickets found"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Tickets"
+                ],
+                "summary": "Update an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Tickets"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success: Tickets actualizada exitosamente"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Tickets"
+                ],
+                "summary": "Delete an entity by ID",
+                "parameters": {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "responses": {
+                "200": {
+                    "description": "Success: Tickets successfully removed"
+                },
+                "401": {
+                    "description": "Unauthorized: Authentication required"
+                },
+                "403": {
+                    "description": "Forbidden: You do not have permissions to access this resource"
+                },
+                "404": {
+                    "description": "Not found: The entity does not exist"
+                }
+            }
+        },
+        "/transactions": {
+            "get": {
+                "tags": [
+                    "Transactions"
+                ],
+                "summary": "Get a list of entities",
+                "responses": {
+                    "200": {
+                        "description": "Success: List of entities returned successfully"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Transactions"
+                ],
+                "summary": "Create a new entity",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Transactions"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created: Transactions successfully created"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            }
+        },
+        "/transactions/{id}": {
+            "get": {
+                "tags": [
+                    "Transactions"
+                ],
+                "summary": "Get an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: Transactions found"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Transactions"
+                ],
+                "summary": "Update an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Transactions"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success: Transactions actualizada exitosamente"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Transactions"
+                ],
+                "summary": "Delete an entity by ID",
+                "parameters": {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "responses": {
+                "200": {
+                    "description": "Success: Transactions successfully removed"
+                },
+                "401": {
+                    "description": "Unauthorized: Authentication required"
+                },
+                "403": {
+                    "description": "Forbidden: You do not have permissions to access this resource"
+                },
+                "404": {
+                    "description": "Not found: The entity does not exist"
+                }
+            }
+        },
+        "/admin/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get a list of entities",
+                "responses": {
+                    "200": {
+                        "description": "Success: List of entities returned successfully"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Create a new entity",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Users"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created: Users successfully created"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    }
+                }
+            }
+        },
+        "/admin/users/{id}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: Users found"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Update an entity by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Users"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success: Users actualizada exitosamente"
+                    },
+                    "401": {
+                        "description": "Unauthorized: Authentication required"
+                    },
+                    "403": {
+                        "description": "Forbidden: You do not have permissions to access this resource"
+                    },
+                    "404": {
+                        "description": "Not found: The entity does not exist"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Delete an entity by ID",
+                "parameters": {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "responses": {
+                "200": {
+                    "description": "Success: Users successfully removed"
+                },
+                "401": {
+                    "description": "Unauthorized: Authentication required"
+                },
+                "403": {
+                    "description": "Forbidden: You do not have permissions to access this resource"
+                },
+                "404": {
+                    "description": "Not found: The entity does not exist"
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AffiliatePercentage": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "porcentageL1": {
+                        "type": "number"
+                    },
+                    "porcentageL2": {
+                        "number": "number"
+                    },
+                    "createdBy": {
+                        "type": "string"
+                    },
+                    "updatedBy": {
+                        "type": "string"
+                    },
+                    "isActive": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "CouponType": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string"
+                    },
+                    "createdBy": {
+                        "type": "string"
+                    },
+                    "updatedBy": {
+                        "type": "string"
+                    },
+                    "isActive": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "LogHandler": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "exception": {
+                        "type": "string"
+                    },
+                    "createdBy": {
+                        "type": "string"
+                    },
+                    "updatedBy": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "PriceRates": {
+                "type": "object",
+                "properties": {
+                    "account_size": {
+                        "type": "number"
+                    },
+                    "price": {
+                        "type": "number"
+                    },
+                    "createdBy": {
+                        "type": "string"
+                    },
+                    "updatedBy": {
+                        "type": "string"
+                    },
+                    "isActive": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "Rols": {
+                "type": "object",
+                "properties": {
+                    "rol_name": {
+                        "type": "string"
+                    },
+                    "createdBy": {
+                        "type": "string"
+                    },
+                    "updatedBy": {
+                        "type": "string"
+                    },
+                    "isActive": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "Users": {
+                "type": "object",
+                "properties": {
+                    "username": {
+                        "type": "string"
+                    },
+                    "alias": {
+                        "type": "string"
+                    },
+                    "given_name": {
+                        "type": "string"
+                    },
+                    "family_name": {
+                        "type": "string"
+                    },
+                    "mail": {
+                        "type": "string"
+                    },
+                    "email_verified": {
+                        "type": "boolean"
+                    },
+                    "phone": {
+                        "type": "string"
+                    },
+                    "mfaId": {
+                        "type": "string"
+                    },
+                    "asMfa": {
+                        "type": "boolean"
+                    },
+                    "asAgrements": {
+                        "type": "boolean"
+                    },
+                    "asNewsletter": {
+                        "type": "boolean"
+                    },
+                    "description1": {
+                        "type": "string"
+                    },
+                    "description2": {
+                        "type": "string"
+                    },
+                    "createdBy": {
+                        "type": "string"
+                    },
+                    "updatedBy": {
+                        "type": "string"
+                    },
+                    "picture": {
+                        "type": "string"
+                    },
+                    "last_login": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "last_ip": {
+                        "type": "string"
+                    },
+                    "logins_count": {
+                        "type": "integer"
+                    },
+                    "isActive": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "nickname_referral_link": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Affiliates": {
+                "type": "object",
+                "properties": {
+                    "createdBy": {
+                        "type": "string"
+                    },
+                    "updatedBy": {
+                        "type": "string"
+                    },
+                    "isActive": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "userId": {
+                        "type": "integer"
+                    },
+                    "userReferedId": {
+                        "type": "integer"
+                    },
+                    "affiliatePercentageId": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "Coupon": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "porcentage": {
+                        "type": "number"
+                    },
+                    "details": {
+                        "type": "string"
+                    },
+                    "createdBy": {
+                        "type": "string"
+                    },
+                    "updatedBy": {
+                        "type": "string"
+                    },
+                    "isActive": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "couponTypeId": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "Memberships": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "asScability": {
+                        "type": "string"
+                    },
+                    "scalability": {
+                        "type": "number"
+                    },
+                    "daily_max_loss": {
+                        "type": "number"
+                    },
+                    "overal_max_loss": {
+                        "type": "number"
+                    },
+                    "min_trading_days": {
+                        "type": "integer"
+                    },
+                    "max_trading_days": {
+                        "type": "integer"
+                    },
+                    "available_Leverage": {
+                        "type": "number"
+                    },
+                    "performance_split_client": {
+                        "type": "number"
+                    },
+                    "performance_split_firm": {
+                        "type": "number"
+                    },
+                    "createdBy": {
+                        "type": "string"
+                    },
+                    "updatedBy": {
+                        "type": "string"
+                    },
+                    "isActive": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "membershipTypeId": {
+                        "type": "integer"
+                    },
+                    "membershipStatusId": {
+                        "type": "integer"
+                    },
+                    "asRefund": {
+                        "type": "string"
+                    }
+                }
+            },
+            "MtAccounts": {
+                "type": "object",
+                "properties": {
+                    "login": {
+                        "type": "string"
+                    },
+                    "initial_balance": {
+                        "type": "number"
+                    },
+                    "levarage": {
+                        "type": "number"
+                    },
+                    "createdBy": {
+                        "type": "string"
+                    },
+                    "updatedBy": {
+                        "type": "string"
+                    },
+                    "isLive": {
+                        "type": "boolean"
+                    },
+                    "userId": {
+                        "type": "integer"
+                    },
+                    "isActive": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "membershipId": {
+                        "type": "integer"
+                    },
+                    "mtAccountStatusId": {
+                        "type": "integer"
+                    },
+                    "mtAccountTypeId": {
+                        "type": "integer"
+                    },
+                    "group": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Notifications": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "type": "string"
+                    },
+                    "createdBy": {
+                        "type": "string"
+                    },
+                    "updatedBy": {
+                        "type": "string"
+                    },
+                    "isActive": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "userId": {
+                        "type": "integer"
+                    },
+                    "notificationStatusId": {
+                        "type": "integer"
+                    },
+                    "notificationTypeId": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "Orders": {
+                "type": "object",
+                "properties": {
+                    "total": {
+                        "type": "number"
+                    },
+                    "details": {
+                        "type": "string"
+                    },
+                    "createdBy": {
+                        "type": "string"
+                    },
+                    "updatedBy": {
+                        "type": "string"
+                    },
+                    "asDiscount": {
+                        "type": "boolean"
+                    },
+                    "isActive": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "userId": {
+                        "type": "integer"
+                    },
+                    "coouponId": {
+                        "type": "integer"
+                    },
+                    "orderStatusId": {
+                        "type": "integer"
+                    },
+                    "orderTypeId": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "Packages": {
+                "type": "object",
+                "properties": {
+                    "first_target": {
+                        "type": "number"
+                    },
+                    "second_target": {
+                        "type": "number"
+                    },
+                    "createdBy": {
+                        "type": "string"
+                    },
+                    "updatedBy": {
+                        "type": "string"
+                    },
+                    "isActive": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "priceRatesId": {
+                        "type": "integer"
+                    },
+                    "membershipsId": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PaguelofacilTransactions": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "code": {
+                        "type": "string"
+                    },
+                    "return_url": {
+                        "type": "string"
+                    },
+                    "createdBy": {
+                        "type": "string"
+                    },
+                    "updatedBy": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "orderId": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "Permissions": {
+                "type": "object",
+                "properties": {
+                    "permision_name": {
+                        "type": "string"
+                    },
+                    "createdBy": {
+                        "type": "string"
+                    },
+                    "updatedBy": {
+                        "type": "string"
+                    },
+                    "isActive": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "rolId": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "Tickets": {
+                "type": "object",
+                "properties": {
+                    "subject": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "type": "string"
+                    },
+                    "createdBy": {
+                        "type": "string"
+                    },
+                    "updatedBy": {
+                        "type": "string"
+                    },
+                    "isActive": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "userId": {
+                        "type": "integer"
+                    },
+                    "ticketStatusId": {
+                        "type": "integer"
+                    },
+                    "ticketTypeId": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "Transactions": {
+                "type": "object",
+                "properties": {
+                    "avaibleBalance": {
+                        "type": "number"
+                    },
+                    "request_amount": {
+                        "type": "number"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "createdBy": {
+                        "type": "string"
+                    },
+                    "updatedBy": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "mtAccountId": {
+                        "type": "integer"
+                    },
+                    "transactionStatusId": {
+                        "type": "integer"
+                    },
+                    "transactionTypeId": {
+                        "type": "integer"
+                    }
+                }
+            }
+        }
+    }
+}

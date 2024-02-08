@@ -1,2 +1,21 @@
+# requirements.txt
+flask-restful
+flask_swagger_ui
+flask_cors
+sqlalchemy
+sqlalchemy.orm
+sqlalchemy-utils
+pymysql
+mysql-connector-python
+python-dotenv
+alembic
+requests
+Authlib
+python-dotenv 
+python-jose 
+flask-cors 
+six
+pandas
+lxml
+html5lib
 MT5Manager
-numpy
