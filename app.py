@@ -5,7 +5,7 @@ import os
 import sys
 from flask_cors import CORS
 
-from controllers.MtManagerController import MtManagerController
+from controllers.MtManagerController import MtGroupsController, MtLoginController, MtMetricsController, MtUserController
 
 sys.path.append(os.path.split(os.getcwd())[0])
 
@@ -22,7 +22,10 @@ ALGORITHMS = os.getenv('ALGORITHMS')
 app = Flask(__name__)
 api = Api(app)
 
-api.add_resource(MtManagerController, "/manager")
+api.add_resource(MtGroupsController, "/groups")
+api.add_resource(MtLoginController, "/accounts")
+api.add_resource(MtUserController, "/users")
+api.add_resource(MtMetricsController, "/metrics/journal")
 
 CORS(app, resources={r"/*": {"origins": "*"}})
 @app.route('/api/docs')
