@@ -1,3 +1,4 @@
+import base64
 from datetime import datetime
 from flask import request
 from flask_restful import Resource
@@ -12,6 +13,8 @@ from dotenv import load_dotenv
 import os
 import sys
 
+from utils.decodeHeaders import DecodeHeader
+
 sys.path.append(os.path.split(os.getcwd())[0])
 load_dotenv()
 
@@ -19,7 +22,9 @@ load_dotenv()
 class MtGroupsController(Resource):
 
     def get(self):
-        metaQuotesService = MetaQuotesService()
+        decodeService = DecodeHeader(request)
+        cred = decodeService.getBrokerCredentials()
+        metaQuotesService = MetaQuotesService(cred[0], cred[1], cred[2])
         return metaQuotesService.getMtGroups()
 
 
@@ -27,14 +32,18 @@ class MtLoginController(Resource):
 
     def get(self):
         group = request.args.get("group")
-        metaQuotesService = MetaQuotesService()
+        decodeService = DecodeHeader(request)
+        cred = decodeService.getBrokerCredentials()
+        metaQuotesService = MetaQuotesService(cred[0], cred[1], cred[2])
         return metaQuotesService.getLoginsByGroup(str(group))
 
 
 class MtUserController(Resource):
 
     def get(self):
-        metaQuotesService = MetaQuotesService()
+        decodeService = DecodeHeader(request)
+        cred = decodeService.getBrokerCredentials()
+        metaQuotesService = MetaQuotesService(cred[0], cred[1], cred[2])
         login = request.args.get("login")
         result: MTUser = metaQuotesService.getLogin(login)
         obj = UserAdd()
@@ -43,7 +52,9 @@ class MtUserController(Resource):
     def put(self):
         data = request.get_json()
 
-        metaQuotesService = MetaQuotesService()
+        decodeService = DecodeHeader(request)
+        cred = decodeService.getBrokerCredentials()
+        metaQuotesService = MetaQuotesService(cred[0], cred[1], cred[2])
         userAdd = UserAdd(
             Name=data["name"],
             Group=data["group"],
@@ -58,7 +69,9 @@ class MtUserController(Resource):
         disbleAccount = bool(request.args.get("disbleAccount"))
         enableAccount = bool(request.args.get("enableAccount"))
         data = request.get_json()
-        metaQuotesService = MetaQuotesService()
+        decodeService = DecodeHeader(request)
+        cred = decodeService.getBrokerCredentials()
+        metaQuotesService = MetaQuotesService(cred[0], cred[1], cred[2])
 
         if addBalance == True:
             return metaQuotesService.addBalance(data["login"], data["balance"])
@@ -77,13 +90,15 @@ class MtUserController(Resource):
 
         data = request.get_json()
 
-        metaQuotesService = MetaQuotesService()
+        decodeService = DecodeHeader(request)
+        cred = decodeService.getBrokerCredentials()
+        metaQuotesService = MetaQuotesService(cred[0], cred[1], cred[2])
         userAdd = UserAdd(
             Name=data["name"],
             Group=data["group"],
             Leverage=data["leverage"],
             Rights=2403,
-            EMail=data["email"]
+            EMail=data["email"],
         )
 
         return metaQuotesService.postLogin(
@@ -97,7 +112,9 @@ class MtMetricsController(Resource):
         from_date = request.args.get("from")
         to_date = request.args.get("to")
 
-        metaQuotesService = MetaQuotesService()
+        decodeService = DecodeHeader(request)
+        cred = decodeService.getBrokerCredentials()
+        metaQuotesService = MetaQuotesService(cred[0], cred[1], cred[2])
         return metaQuotesService.getJournal(int(login), from_date, to_date)
 
 

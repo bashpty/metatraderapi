@@ -23,10 +23,10 @@ def to_list_json(obj):
 
 class MetaQuotesService(IMetaQuotesService):
 
-    def __init__(self):
-        self.server = os.getenv("SERVER")
-        self.login = os.getenv("LOGIN")
-        self.password = os.getenv("PASSWORD")
+    def __init__(self, server, login, password):
+        self.server = server
+        self.login = login
+        self.password = password
 
     def getMtGroups(self):
         manager = ManagerAPI()
