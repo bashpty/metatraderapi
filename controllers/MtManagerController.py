@@ -26,17 +26,19 @@ class MtGroupsController(Resource):
 class MtLoginController(Resource):
 
     def get(self):
-
+        group = request.args.get("group")
         metaQuotesService = MetaQuotesService()
-        return metaQuotesService.getLoginsByGroup("demo\\FYT_SDT_USD")
+        return metaQuotesService.getLoginsByGroup(str(group))
 
 
 class MtUserController(Resource):
 
     def get(self):
         metaQuotesService = MetaQuotesService()
-        login = [8097]
-        return metaQuotesService.getLogin(login)
+        login = request.args.get("login")
+        result: MTUser = metaQuotesService.getLogin(login)
+        obj = UserAdd()
+        return obj.__json2__(result)
 
     def put(self):
         data = request.get_json()
@@ -81,7 +83,7 @@ class MtUserController(Resource):
             Group=data["group"],
             Leverage=data["leverage"],
             Rights=2403,
-            EMail=data["eMail"],
+            EMail=data["email"]
         )
 
         return metaQuotesService.postLogin(

@@ -1,4 +1,5 @@
 import datetime
+from MT5Manager import MTUser
 
 
 class UserAdd:
@@ -147,4 +148,55 @@ class UserAdd:
             "LastName": self.LastName,
             "MiddleName": self.MiddleName,
             "OtpSecret=": self.OtpSecret,
+        }
+
+    def __json2__(sef, obj: MTUser):
+        return {
+            "Account": obj.Account,
+            "Address": obj.Address,
+            "Agent": obj.Agent,
+            "Balance": obj.Balance,
+            "BalancePrevDay": obj.BalancePrevDay,
+            "BalancePrevMonth": obj.BalancePrevMonth,
+            "CertSerialNumber": obj.CertSerialNumber,
+            "City": obj.City,
+            "ClientID": obj.ClientID,
+            "Color": obj.Color,
+            "Comment": obj.Comment,
+            "CommissionAgentDaily": obj.CommissionAgentDaily,
+            "CommissionAgentMonthly": obj.CommissionAgentMonthly,
+            "CommissionDaily": obj.CommissionDaily,
+            "CommissionMonthly": obj.CommissionMonthly,
+            "Company": obj.Company,
+            "Country": obj.Country,
+            "Credit": obj.Credit,
+            "EMail": obj.EMail,
+            "EquityPrevDay": obj.EquityPrevDay,
+            "EquityPrevMonth": obj.EquityPrevMonth,
+            "FirstName": obj.FirstName,
+            "Group": obj.Group,
+            "ID": obj.ID,
+            "InterestRate": obj.InterestRate,
+            "Language": obj.Language,
+            "LastAccess": obj.LastAccess,
+            "LastIP": obj.LastIP,
+            "LastName": obj.LastName,
+            "LastPassChange": obj.LastPassChange,
+            "LeadCampaign": obj.LeadCampaign,
+            "LeadSource": obj.LeadSource,
+            "Leverage": obj.Leverage,
+            "LimitOrders": obj.LimitOrders,
+            "LimitPositionsValue": obj.LimitPositionsValue,
+            "Login": obj.Login,
+            "MQID": obj.MQID,
+            "MiddleName": obj.MiddleName,
+            "Name": obj.Name,
+            "OTPSecret": obj.OTPSecret,
+            "Phone": obj.Phone,
+            "PhonePassword": obj.PhonePassword,
+            "Registration": obj.Registration,
+            "Rights": obj.Rights,
+            "State": obj.State,
+            "Status": obj.Status,
+            "ZIPCode": obj.ZIPCode,
         }

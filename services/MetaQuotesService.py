@@ -47,7 +47,6 @@ class MetaQuotesService(IMetaQuotesService):
         manager.Connect(str(self.server), int(self.login), str(self.password))
         accountList = []
 
-        manager.NetworkAddress
         for acc in manager.UserAccountGetByGroup(searchGroup):
             account: MTAccount = acc
             item = Account(
@@ -82,9 +81,11 @@ class MetaQuotesService(IMetaQuotesService):
         return accountList
 
     def postLogin(self, acc: UserAdd, master: str, investor: str):
-        manager = ManagerAPI()
 
+        created_user = {}
+        manager = ManagerAPI()
         manager.Connect(str(self.server), int(self.login), str(self.password))
+
         userList = manager.UserGetByGroup(acc.Group)
         user: MTUser = userList[0]
         user.Clear()
@@ -92,12 +93,19 @@ class MetaQuotesService(IMetaQuotesService):
         user.Group = acc.Group
         user.Leverage = acc.Leverage
         user.EMail = acc.EMail
-        user.Color = acc.Color
         user.Rights = acc.Rights
 
         result = manager.UserAdd(user, master, investor)
+        if result == True:
+            created = manager.UserGetByGroup(acc.Group)
+            filtered: MTUser = [u for u in created if u.EMail == acc.EMail][0]
+            created_user = {
+                "login": filtered.Login,
+                "master": master,
+                "investor": investor,
+            }
         manager.LoggerOut()
-        return result
+        return created_user
 
     def updateLogin(self, acc: UserAdd):
         manager = ManagerAPI()
@@ -164,11 +172,11 @@ class MetaQuotesService(IMetaQuotesService):
         manager.LoggerOut()
         return result
 
-    def getLogin(self, login: any):
+    def getLogin(self, login: int):
         manager = ManagerAPI()
         manager.Connect(str(self.server), int(self.login), str(self.password))
-        result = manager.UserGet(login)
 
+        result = manager.UserGet(login=int(login))
         manager.LoggerOut()
         return result
 
@@ -183,7 +191,7 @@ class MetaQuotesService(IMetaQuotesService):
         )
         dealsList = []
         for d in result:
-            
+
             deal: MTDeal = d
             item = Deal.__json__(deal)
             dealsList.append(item)
