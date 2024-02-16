@@ -42,43 +42,79 @@ class MetaQuotesService(IMetaQuotesService):
         manager.LoggerOut()
         return json.loads(json_array_string)
 
-    def getLoginsByGroup(self, searchGroup: str):
+    def getAccountbyGroup(self, searchGroup: str):
         manager = ManagerAPI()
         manager.Connect(str(self.server), int(self.login), str(self.password))
-        accountList = []
+        list = []
+        accountList: [MTAccount] = manager.UserAccountGetByGroup(searchGroup)  # type: ignore
 
-        for acc in manager.UserAccountGetByGroup(searchGroup):
-            account: MTAccount = acc
+        for account in accountList:
+
             item = Account(
-                assets=account.Assets,
-                balance=account.Balance,
-                blockedCommission=account.BlockedCommission,
-                blockedProfit=account.BlockedProfit,
-                credit=account.Credit,
-                currencyDigits=account.CurrencyDigits,
-                equity=account.Equity,
-                floating=account.Floating,
-                liabilities=account.Liabilities,
-                login=account.Login,
-                margin=account.Margin,
-                marginFree=account.MarginFree,
-                marginInitial=account.MarginInitial,
-                marginLevel=account.MarginLevel,
-                marginLeverage=account.MarginLeverage,
-                marginMaintenance=account.MarginMaintenance,
-                obsoleteValue=account.ObsoleteValue,
-                profit=account.Profit,
-                sOActivation=account.SOActivation,
-                sOEquity=account.SOEquity,
-                sOLevel=account.SOLevel,
-                sOMargin=account.SOMargin,
-                sOTime=account.SOTime,
-                storage=account.Storage,
+                account.Assets,
+                account.Balance,
+                account.BlockedCommission,
+                account.BlockedProfit,
+                account.Credit,
+                account.CurrencyDigits,
+                account.Equity,
+                account.Floating,
+                account.Liabilities,
+                account.Login,
+                account.Margin,
+                account.MarginFree,
+                account.MarginInitial,
+                account.MarginLevel,
+                account.MarginLeverage,
+                account.MarginMaintenance,
+                account.ObsoleteValue,
+                account.Profit,
+                account.SOActivation,
+                account.SOEquity,
+                account.SOLevel,
+                account.SOMargin,
+                account.SOTime,
+                account.Storage,
             )
-            accountList.append(item.__json__())
+            list.append(item.__json__())
 
         manager.LoggerOut()
-        return accountList
+        return list
+
+    def getAccount(self, login: int):
+        manager = ManagerAPI()
+        manager.Connect(str(self.server), int(self.login), str(self.password))
+
+        result: MTAccount = manager.UserAccountGet(login=int(login))
+
+        item = Account(
+            result.Assets,
+            result.Balance,
+            result.BlockedCommission,
+            result.BlockedProfit,
+            result.Credit,
+            result.CurrencyDigits,
+            result.Equity,
+            result.Floating,
+            result.Liabilities,
+            result.Login,
+            result.Margin,
+            result.MarginFree,
+            result.MarginInitial,
+            result.MarginLevel,
+            result.MarginLeverage,
+            result.MarginMaintenance,
+            result.ObsoleteValue,
+            result.Profit,
+            result.SOActivation,
+            result.SOEquity,
+            result.SOLevel,
+            result.SOMargin,
+            result.SOTime,
+            result.Storage,
+        )
+        manager.LoggerOut()
+        return item.__json__()
 
     def postLogin(self, acc: UserAdd, master: str, investor: str):
 
@@ -177,15 +213,6 @@ class MetaQuotesService(IMetaQuotesService):
         manager.Connect(str(self.server), int(self.login), str(self.password))
 
         result = manager.UserGet(login=int(login))
-        manager.LoggerOut()
-        return result
-    
-    def getAccount(self, login: int):
-        manager = ManagerAPI()
-        manager.Connect(str(self.server), int(self.login), str(self.password))
-
-        result = manager.UserAccountGet(login=int(login))
-        
         manager.LoggerOut()
         return result
 

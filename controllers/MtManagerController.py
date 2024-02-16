@@ -41,37 +41,9 @@ class MtLoginController(Resource):
         metaQuotesService = MetaQuotesService(cred[0], cred[1], cred[2])
 
         if group is not None:
-            return metaQuotesService.getLoginsByGroup(str(group))
+            return metaQuotesService.getAccountbyGroup(str(group))
         if login is not None:
-            result: MTAccount = metaQuotesService.getAccount(int(login))
-            account = Account(
-                result.Assets,
-                result.Balance,
-                result.BlockedCommission,
-                result.BlockedProfit,
-                result.Credit,
-                result.CurrencyDigits,
-                result.Equity,
-                result.Floating,
-                result.Liabilities,
-                result.Login,
-                result.Margin,
-                result.MarginFree,
-                result.MarginInitial,
-                result.MarginLevel,
-                result.MarginLeverage,
-                result.MarginMaintenance,
-                result.ObsoleteValue,
-                result.Profit,
-                result.SOActivation,
-                result.SOEquity,
-                result.SOLevel,
-                result.SOMargin,
-                result.SOTime,
-                result.Storage,
-            )
-
-            return account.__json__()
+            return metaQuotesService.getAccount(int(login))
 
 
 class MtUserController(Resource):

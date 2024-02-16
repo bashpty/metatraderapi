@@ -12,7 +12,7 @@ class IMetaQuotesService(ABC):
         pass
 
     @abstractmethod
-    def getLoginsByGroup(self, searchGroup: str):
+    def getAccountbyGroup(self, searchGroup: str):
         pass
 
     @abstractmethod
@@ -42,6 +42,12 @@ class IMetaQuotesService(ABC):
     @abstractmethod
     def getJournal(self, login: int, from_date: str, to_date: str):
         pass
+
+    @abstractmethod
+    def getAccount(self, login: int):
+        pass
+    
+
 
     @abstractmethod
     def getLogin(self, login: any):
