@@ -1,80 +1,85 @@
+from dataclasses import dataclass
+
+@dataclass
 class Account:
     def __init__(
         self,
-        assets=None,
-        balance=None,
-        blockedCommission=None,
-        blockedProfit=None,
-        credit=None,
-        currencyDigits=None,
-        equity=None,
-        floating=None,
-        liabilities=None,
-        login=None,
-        margin=None,
-        marginFree=None,
-        marginInitial=None,
-        marginLevel=None,
-        marginLeverage=None,
-        marginMaintenance=None,
-        obsoleteValue=None,
-        profit=None,
-        sOActivation=None,
-        sOEquity=None,
-        sOLevel=None,
-        sOMargin=None,
-        sOTime=None,
-        storage=None,
+        Assets=None,
+        Balance=None,
+        BlockedCommission=None,
+        BlockedProfit=None,
+        Credit=None,
+        CurrencyDigits=None,
+        Equity=None,
+        Floating=None,
+        Liabilities=None,
+        Login=None,
+        Margin=None,
+        MarginFree=None,
+        MarginInitial=None,
+        MarginLevel=None,
+        MarginLeverage=None,
+        MarginMaintenance=None,
+        ObsoleteValue=None,
+        Profit=None,
+        SOActivation=None,
+        SOEquity=None,
+        SOLevel=None,
+        SOMargin=None,
+        SOTime=None,
+        Storage=None,
     ):
-        self.assets: float = assets
-        self.balance: float = balance
-        self.blockedCommission: float = blockedCommission
-        self.blockedProfit: float = blockedProfit
-        self.credit: float = credit
-        self.currencyDigits: int = currencyDigits
-        self.equity: float = equity
-        self.floating: float = floating
-        self.liabilities: float = liabilities
-        self.login: int = login
-        self.margin: float = margin
-        self.marginFree: float = marginFree
-        self.marginInitial: float = marginInitial
-        self.marginLevel: float = marginLevel
-        self.marginLeverage: int = marginLeverage
-        self.marginMaintenance: float = marginMaintenance
-        self.obsoleteValue: float = obsoleteValue
-        self.profit: float = profit
-        self.sOActivation: float = sOActivation
-        self.sOEquity: float = sOEquity
-        self.sOLevel: float = sOLevel
-        self.sOMargin: float = sOMargin
-        self.sOTime: int = sOTime
-        self.storage: float = storage
+        self.Assets: float = Assets
+        self.Balance: float = Balance
+        self.BlockedCommission: float = BlockedCommission
+        self.BlockedProfit: float = BlockedProfit
+        self.Credit: float = Credit
+        self.CurrencyDigits: int = CurrencyDigits
+        self.Equity: float = Equity
+        self.Floating: float = Floating
+        self.Liabilities: float = Liabilities
+        self.Login: int = Login
+        self.Margin: float = Margin
+        self.MarginFree: float = MarginFree
+        self.MarginInitial: float = MarginInitial
+        self.MarginLevel: float = MarginLevel
+        self.MarginLeverage: int = MarginLeverage
+        self.MarginMaintenance: float = MarginMaintenance
+        self.ObsoleteValue: float = ObsoleteValue
+        self.Profit: float = Profit
+        self.SOActivation: float = SOActivation
+        self.SOEquity: float = SOEquity
+        self.SOLevel: float = SOLevel
+        self.SOMargin: float = SOMargin
+        self.SOTime: int = SOTime
+        self.Storage: float = Storage
+         
+
 
     def __json__(self):
         return {
-            "assets": self.assets,
-            "balance": self.balance,
-            "blockedCommission": self.blockedCommission,
-            "blockedProfit": self.blockedProfit,
-            "credit": self.credit,
-            "currencyDigits": self.currencyDigits,
-            "equity": self.equity,
-            "floating": self.floating,
-            "liabilities": self.liabilities,
-            "login": self.login,
-            "margin": self.margin,
-            "marginFree": self.marginFree,
-            "marginInitial": self.marginInitial,
-            "marginLevel": self.marginLevel,
-            "marginLeverage": self.marginLeverage,
-            "marginMaintenance": self.marginMaintenance,
-            "obsoleteValue": self.obsoleteValue,
-            "profit": self.profit,
-            "sOActivation": self.sOActivation,
-            "sOEquity": self.sOEquity,
-            "sOLevel": self.sOLevel,
-            "sOMargin": self.sOMargin,
-            "sOTime": self.sOTime,
-            "storage": self.storage,
+            "assets": self.Assets,
+            "balance": self.Balance,
+            "blockedCommission": self.BlockedCommission,
+            "blockedProfit": self.BlockedProfit,
+            "credit": self.Credit,
+            "currencyDigits": self.CurrencyDigits,
+            "equity": self.Equity,
+            "floating": self.Floating,
+            "liabilities": self.Liabilities,
+            "login": self.Login,
+            "margin": self.Margin,
+            "marginFree": self.MarginFree,
+            "marginInitial": self.MarginInitial,
+            "marginLevel": self.MarginLevel,
+            "marginLeverage": self.MarginLeverage,
+            "marginMaintenance": self.MarginMaintenance,
+            "obsoleteValue": self.ObsoleteValue,
+            "profit": self.Profit,
+            "sOActivation": self.SOActivation,
+            "sOEquity": self.SOEquity,
+            "sOLevel": self.SOLevel,
+            "sOMargin": self.SOMargin,
+            "sOTime": self.SOTime,
+            "storage": self.Storage,
         }

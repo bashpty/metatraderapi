@@ -179,6 +179,15 @@ class MetaQuotesService(IMetaQuotesService):
         result = manager.UserGet(login=int(login))
         manager.LoggerOut()
         return result
+    
+    def getAccount(self, login: int):
+        manager = ManagerAPI()
+        manager.Connect(str(self.server), int(self.login), str(self.password))
+
+        result = manager.UserAccountGet(login=int(login))
+        
+        manager.LoggerOut()
+        return result
 
     def getJournal(self, login: int, from_date: str, to_date: str):
         manager = ManagerAPI()

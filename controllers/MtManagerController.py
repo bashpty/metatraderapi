@@ -2,9 +2,10 @@ import base64
 from datetime import datetime
 from flask import request
 from flask_restful import Resource
+from models import Account
 from models.EnableOptions import EnableOptions
 from models.UserAdd import UserAdd
-from MT5Manager import MTUser
+from MT5Manager import MTUser, MTAccount
 
 
 from services.MetaQuotesService import MetaQuotesService
@@ -31,11 +32,46 @@ class MtGroupsController(Resource):
 class MtLoginController(Resource):
 
     def get(self):
+
         group = request.args.get("group")
+        login = request.args.get("login")
+
         decodeService = DecodeHeader(request)
         cred = decodeService.getBrokerCredentials()
         metaQuotesService = MetaQuotesService(cred[0], cred[1], cred[2])
-        return metaQuotesService.getLoginsByGroup(str(group))
+
+        if group is not None:
+            return metaQuotesService.getLoginsByGroup(str(group))
+        if login is not None:
+            result: MTAccount = metaQuotesService.getAccount(int(login))
+            account = Account(
+                result.Assets,
+                result.Balance,
+                result.BlockedCommission,
+                result.BlockedProfit,
+                result.Credit,
+                result.CurrencyDigits,
+                result.Equity,
+                result.Floating,
+                result.Liabilities,
+                result.Login,
+                result.Margin,
+                result.MarginFree,
+                result.MarginInitial,
+                result.MarginLevel,
+                result.MarginLeverage,
+                result.MarginMaintenance,
+                result.ObsoleteValue,
+                result.Profit,
+                result.SOActivation,
+                result.SOEquity,
+                result.SOLevel,
+                result.SOMargin,
+                result.SOTime,
+                result.Storage,
+            )
+
+            return account.__json__()
 
 
 class MtUserController(Resource):
